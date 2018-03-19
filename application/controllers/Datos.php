@@ -9,11 +9,21 @@ class Datos extends CI_Controller{
 	
 	
 }
-public function listar(){
-	
+ function listar(){
+	 header("Access-Control-Allow-Origin: *");
 	$drio=$this->Datos_model->listar();
 	echo json_encode($drio);
 }
+
+ function insertar(){
+
+ 	$post=$this->input->post();
+ 	if(isset($post['profundidad']) && isset($post['temperatura']) && isset($post['caudal']) && isset($post['turbidez'])){
+ 	$this->Datos_model->insertar($this->input->post());
+ 		}else{
+ 			echo json_encode("inserte todo los datos");
+ 		}
+ }
 
 }
 ?>
