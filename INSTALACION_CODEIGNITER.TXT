@@ -1,0 +1,14 @@
+$ composer create-project kenjis/codeigniter-composer-installer codeigniter
+$ cd codeigniter
+$ chmod 777 application/logs application/cache
+$ bin/install.php translations 3.0.3
+$ bin/install.php matches-cli master
+$ vi application/config/config.php
+  Y poner:
+  $config['uri_protocol'] = isset($_SERVER['REQUEST_URI']) ? 'PATH_INFO' : 'CLI';
+$ php public/index.php matches encryption_key
+$ composer require "phpunit/phpunit=4.*" --dev
+$ composer require kenjis/ci-phpunit-test --dev
+$ php vendor/kenjis/ci-phpunit-test/install.php
+$ bin/install.php ion-auth 2
+
