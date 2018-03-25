@@ -18,11 +18,20 @@ class Datos extends CI_Controller{
  function insertar(){
 
  	$post=$this->input->post();
+
  	if(isset($post['profundidad']) && isset($post['temperatura']) && isset($post['caudal']) && isset($post['turbidez'])){
  	$this->Datos_model->insertar($this->input->post());
  		}else{
  			echo json_encode("inserte todo los datos");
  		}
+ }
+ function insertarPos(){
+
+ 	$post=$this->input->post();
+ 	 $postdata=file_get_contents(("php://input"));
+        $datos=json_decode($postdata);
+ 	$this->Datos_model->insertar($datos);
+ 		
  }
 
 }

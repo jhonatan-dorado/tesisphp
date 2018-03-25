@@ -23,5 +23,14 @@ function insertar($datos){
 	//$this->db->set('profundidad')
 	//return $this->input->post();
 }
+function insertarPos($datos){
+	$this->db->set('latitud',$datos['latitud']);
+	$this->db->set('longitud',$datos['longitud']);
+	$this->db->set('fecha',Date('Y-m-d H:i:s'));
+	$this->db->insert('prueba');
+
+	//$this->db->set('profundidad')
+	//return $this->input->post();
+}
 }
 ?>
