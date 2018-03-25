@@ -30,7 +30,7 @@ class Datos extends CI_Controller{
  	$post=$this->input->post();
  	 $postdata=file_get_contents(("php://input"));
         $datos=json_decode($postdata);
- 	$this->Datos_model->insertar($datos);
+ 	$this->Datos_model->insertarPos($datos);
  		
  }
 
