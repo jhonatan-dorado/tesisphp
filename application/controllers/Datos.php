@@ -33,6 +33,11 @@ class Datos extends CI_Controller{
  	$this->Datos_model->insertarPos($datos);
  		
  }
+ function listarArduinos(){
+     header("Access-Control-Allow-Origin: *");
+     $respuesta=$this->Datos_model->listarArduinos();
+     echo json_encode($respuesta);
+ }
 
 }
 ?>

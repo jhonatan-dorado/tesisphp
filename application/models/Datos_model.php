@@ -9,7 +9,7 @@ class Datos_model extends CI_Model{
 
 function listar(){
 	
-	$data = $this->db->get('variables_rio');
+	$data = $this->db->get('datos_afectacion');
 	return $data->result_array();
 }
 function insertar($datos){
@@ -31,6 +31,10 @@ function insertarPos($datos){
 
 	//$this->db->set('profundidad')
 	//return $this->input->post();
+}
+function listarArduinos(){
+    $respuesta=$this->db->get('datos_arduino');
+    return $respuesta->result_array();
 }
 }
 ?>
