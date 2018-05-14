@@ -14,6 +14,7 @@ public function index()
 		$this->load->view('welcome_message');
 	}
  function listar(){
+     
 	 header("Access-Control-Allow-Origin: *");
 	$drio=$this->Datos_model->listar();
 	echo json_encode($drio);
