@@ -9,6 +9,10 @@ class Datos extends CI_Controller{
 	
 	
 }
+public function index()
+	{
+		$this->load->view('welcome_message');
+	}
  function listar(){
 	 header("Access-Control-Allow-Origin: *");
 	$drio=$this->Datos_model->listar();
