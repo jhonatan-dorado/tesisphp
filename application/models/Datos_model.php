@@ -7,8 +7,8 @@ class Datos_model extends CI_Model{
 		$this->load->database();
 	}
 
-function listar(){
-	
+function listar($datos){
+	$this->db->where('datArd_id',$datos->idArd);
 	$data = $this->db->get('datos_afectacion');
 	return $data->result_array();
 }

@@ -14,10 +14,21 @@ public function index()
 		$this->load->view('welcome_message');
 	}
  function listar(){
-     
-	 header("Access-Control-Allow-Origin: *");
-	$drio=$this->Datos_model->listar();
-	echo json_encode($drio);
+      header("Access-Control-Allow-Origin: *");
+	
+	$postdata=file_get_contents(("php://input"));
+        $datos=json_decode($postdata);
+     try{
+         if(empty($datos))
+             throw new Exception ("no es posible realizar la consulta");
+         
+             $drio=$this->Datos_model->listar($datos); 
+     } catch (Exception $ex) {
+       $drio=$ex->getMessage();
+     } finally {
+         echo json_encode($drio); 
+     }
+	//echo json_encode($drio);
 }
 
  function insertar(){
